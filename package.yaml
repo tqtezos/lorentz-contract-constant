@@ -1,0 +1,67 @@
+<<: !include "./hpack/module.yaml"
+
+<<: *meta
+name:                lorentz-contract-constant
+version:             0.1.0.1
+github:              "tqtezos/lorentz-contract-constant"
+license:             BSD3
+author:              "Michael J. Klein TQ Tezos"
+maintainer:          "michael@tqgroup.io"
+copyright:           "2020 Michael J. Klein TQ Tezos"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/tqtezos/lorentz-contract-constant#readme>
+
+library:
+  <<: *lorentz-lib-common
+
+  dependencies:
+    - containers
+    - data-default
+    - fmt
+    - morley
+    - morley-prelude
+    - morley-ledgers
+    - named
+    - singletons
+    - text
+    - vinyl
+    - cryptonite
+    - bytestring
+    - aeson
+    - constraints
+    - binary
+    - lorentz-contract-param
+    - optparse-applicative
+    - transformers
+
+executables:
+  lorentz-contract-constant:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lorentz-contract-constant
+    - optparse-applicative
+    - morley
+    - named
+    - text
+    - morley-prelude
+    - singletons
+    - ansi-wl-pprint
+
+tests:
+  lorentz-contract-constant-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lorentz-contract-constant
